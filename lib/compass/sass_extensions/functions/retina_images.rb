@@ -7,8 +7,7 @@ module Compass::SassExtensions::Functions::RetinaImages
 
   def retina_filename(filename)
     filename = filename.value
-    extension = File.extname(filename)
-    Sass::Script::String.new "#{filename.chomp(extension)}@2x#{extension}"
+    Sass::Script::String.new filename.gsub('x1', 'x2')
   end
 end
 
